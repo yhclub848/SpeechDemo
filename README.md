@@ -5,7 +5,7 @@
 
 最近在做一个翻译工具，由于项目需要兼容 iOS 8.0，所以语音识别、合成都是用的科大讯飞的。使用过程中发现在线转语音不是很好，受网络的影响声音经常断断续续的，而它的离线转语音价格有太贵。而且支持的语种较少，现在换成系统自带的语音合成、语音识别。一些心得记录一下方便需要同学查阅。
 
-^^^^^[简书传送门-->](https://www.jianshu.com/p/7fbeaeecab04)^^^^^
+[「简书传送门」](https://www.jianshu.com/p/7fbeaeecab04)
 
 ### 语音识别
 
@@ -416,4 +416,4 @@ NSLog(@"朗读结束");
 "[AVSpeechSynthesisVoice 0x978b950] Language: ja-JP"(日本)
 ```
 
-[博客详解](https://www.jianshu.com/p/7fbeaeecab04)
+[「简书传送门」](https://www.jianshu.com/p/7fbeaeecab04)
