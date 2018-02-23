@@ -1,21 +1,21 @@
 # 浅谈iOS语音识别+语音播报
 
 
-###前言
+### 前言
 
 最近在做一个翻译工具，由于项目需要兼容 iOS 8.0，所以语音识别、合成都是用的科大讯飞的。使用过程中发现在线转语音不是很好，受网络的影响声音经常断断续续的，而它的离线转语音价格有太贵。而且支持的语种较少，现在换成系统自带的语音合成、语音识别。一些心得记录一下方便需要同学查阅。
 
-###语音识别
+### 语音识别
 
-####优点
+#### 优点
 
 说话时，可以一个一个字识别，科大讯飞是一段话识别一次，这样的体验很好，可以及时响应到用户；
 支持58种语种，其中包括一些地方方言(例如：粤语)；
 识别度非常高；
-###缺点
+### 缺点
 
 只支持iOS10以上的系统（iOS 10以下的系统需要做兼容，我用的是科大讯飞）
-###框架主要类
+### 框架主要类
 
 ```
 #import <Foundation/Foundation.h>
@@ -28,7 +28,7 @@
 #import <Speech/SFTranscription.h>
 ```
 
-###如何使用
+### 如何使用
 ```
 #import "XDSpeechViewController.h"
 #import <Speech/Speech.h>
@@ -275,23 +275,23 @@ localeIdentifier = uk-UA,languageCode = uk, countryCode = UA(乌克兰)
 localeIdentifier = es-US,languageCode = es, countryCode = US(美国-西班牙语)
 ```
 
-###语音合成
+### 语音合成
 
-####优点
+#### 优点
 
 - 支持的30多种语种；
 - 语速、语调、音量都可以自己控制，可以自定义自己喜欢的格式；
-####缺点
+#### 缺点
 
 - 发音效果一般理想
 - 播音员默认只有一个（讯飞可以选择播音员发音效果很好）
-###框架主要类
+### 框架主要类
 ```
 #import<AVFoundation/AVSpeechSynthesis.h>
 ```
-###如何使用
+### 如何使用
 
-#####1、初始化设置```AVSpeechSynthesizer```
+##### 1、初始化设置```AVSpeechSynthesizer```
 ```
 AVSpeechSynthesizer *player  = [[AVSpeechSynthesizer alloc]init];
 player.delegate  = self;
@@ -304,7 +304,7 @@ utterance.pitchMultiplier = self.pitchMultiplier;  //设置语调 (0.5-2.0)
 utterance.postUtteranceDelay = 0; //目的是让语音合成器播放下一语句前有短暂的暂停
 [player speakUtterance:utterance];
 ```
-#####2、控制部分
+##### 2、控制部分
 
 - 停止
 ```
@@ -320,7 +320,7 @@ utterance.postUtteranceDelay = 0; //目的是让语音合成器播放下一语�
 [self.player continueSpeaking];
 ```
 
-#####3、代理部分
+##### 3、代理部分
 ```
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance{
 NSLog(@"朗读开始");
@@ -340,7 +340,7 @@ NSLog(@"朗读结束");
 ```
 设置声音效果的方法，注意选英语则读不了汉语，但是汉语可以和英语混用，这个我已经试过了。但是读起来比较生硬。
 
-#####avspeech支持的语言种类包括：
+##### avspeech支持的语言种类包括：
 ```
 "[AVSpeechSynthesisVoice 0x978a0b0] Language: th-TH",(泰国)
 
